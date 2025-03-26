@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: ltr;
+        }
+
+        .large-image {
+            width: 100%;
+            height: 300px;
+            background-image: url('large-image.png'); 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .large-image::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px; 
+            background: linear-gradient(transparent, white);
+        }
+
+       
+    </style>
+</head>
+<body>
+
+<div class="large-image"></div> <!-- عکس بزرگ مستطیلی -->
+
+<nav class="border-gray-200 dark:border-gray-600 bg-orange-500">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        <a href="home" title="" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LOGO</span>
+        </a>
+        <button id="hamburger-menu-button" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-full" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div id="mega-menu-full" class="items-center justify-between font-medium hidden w-full md:flex md:w-auto md:order-1 rounded-lg border-dashed border-2 border-orange-900">
+            <ul class="flex flex-col p-4 md:p-2 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 bg-orange-400 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="home" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <!-- Change button to toggle the visibility of the dropdown -->
+                    <button id="mega-menu-full-dropdown-button" type="button" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" onclick="toggleDropdown()">
+                        drop down
+
+                        <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
+                </li>
+                <li>
+                    <a href="article" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">article</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Dropdown menu -->
+    <div id="mega-menu-full-dropdown" class="mt-1 border-gray-200 shadow-sm bg-orange-300  border-y dark:bg-gray-800 dark:border-gray-600 hidden">
+        <div class="grid max-w-screen-xl px-4 py-5 mx-auto text-gray-900 dark:text-white sm:grid-cols-2 md:px-6">
+            <ul>
+                <li>
+                    <a href="Find-a-university-by-country" title="Find a university by-country" class="block p-3 rounded-lg hover:bg-orange-200 dark:hover:bg-gray-700">
+                        <div class="font-semibold">sub menu 1</div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="block p-3 rounded-lg hover:bg-orange-200 dark:hover:bg-gray-700">
+                        <div class="font-semibold">sub menu 2</div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="block p-3 rounded-lg hover:bg-orange-200 dark:hover:bg-gray-700">
+                        <div class="font-semibold">sub menu 3</div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="" class="block p-3 rounded-lg hover:bg-orange-200 dark:hover:bg-gray-700">
+                        <div class="font-semibold">sub menu 4</div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="block p-3 rounded-lg hover:bg-orange-200 dark:hover:bg-gray-700">
+                        <div class="font-semibold">sub menu 5</div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="block p-3 rounded-lg hover:bg-orange-200 dark:hover:bg-gray-700">
+                        <div class="font-semibold">sub menu 6</div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<nav>
+    <div id="hamburger-menu" class="hidden flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        <div class="w-full md:flex md:w-auto">
+            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="home" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">Home</a>
+                </li>
+                <li>
+                    <!-- Dropdown for "Company" -->
+                    <button id="company-dropdown-button" type="button" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">
+                        find university
+                        <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <ul id="company-dropdown" class="hidden flex-col mt-2 space-y-2 pl-4">
+                        <li><a href="sub menu 1" title="Find-a-university-by-country" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 1</a></li>
+                        <li><a href="sub menu 2" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 1</a></li>
+                        <li><a href="sub menu 3" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 2</a></li>
+                        <li><a href="sub menu 4" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 3</a></li>
+                        <li><a href="sub menu 5" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 4</a></li>
+                        <li><a href="sub menu 6" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 5</a></li>
+                        <li><a href="sub menu 7" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">sub menu 6</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="article" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">Article</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">Resources</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<script>
+
+
+function toggleDropdown() {
+    const dropdown = document.getElementById('mega-menu-full-dropdown');
+    dropdown.classList.toggle('hidden'); // Toggle the hidden class to show or hide the dropdown
+}
+document.getElementById('hamburger-menu-button').addEventListener('click', () => {
+    const menu = document.getElementById('hamburger-menu');
+    menu.classList.toggle('hidden');
+
+
+});
+document.getElementById('company-dropdown-button').addEventListener('click', () => {
+    const dropdown = document.getElementById('company-dropdown');
+    dropdown.classList.toggle('hidden');
+});
+</script>
+</body>
+
+</html>
